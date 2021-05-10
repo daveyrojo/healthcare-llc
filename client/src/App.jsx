@@ -1,19 +1,16 @@
-import React, { Fragment, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { Route, Switch } from "react-router";
 
 import "./App.scss";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
 
 function App() {
-	useEffect(() => {
-		axios.get("/auth").then(({ data }) => console.log(data));
-	});
-
 	return (
-		<Fragment>
-			<main>
-				<h1>HealthCare, LLC.</h1>
-			</main>
-		</Fragment>
+		<Switch>
+			<Route exact path='/' render={() => <Home />} />
+			<Route exact path='/(sign[ -_]{0,1}in)' render={() => <SignIn />} />
+		</Switch>
 	);
 }
 
